@@ -1,0 +1,261 @@
+/* Two colours only: white and navy blue (taken from the logo). */
+:root {
+  /* Two colours only: navy blue and white. */
+  --navy: #0a1f44;
+  --white: #ffffff;
+  --radius: 14px;
+  --line: 1.5px solid var(--navy);
+  --font: "Outfit", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--white);
+  color: var(--navy);
+  display: flex;
+  min-height: 100vh;
+}
+
+::placeholder {
+  color: var(--navy);
+  font-style: italic;
+}
+
+::selection {
+  background: var(--navy);
+  color: var(--white);
+}
+
+input {
+  color: var(--navy);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--navy);
+}
+
+:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
+}
+
+button {
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--navy);
+  color: var(--white);
+  border: 2px solid var(--navy);
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--white);
+  color: var(--navy);
+}
+
+button:disabled {
+  background: var(--white);
+  color: var(--navy);
+  border-style: dashed;
+  cursor: wait;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 264px;
+  flex-shrink: 0;
+  background: var(--navy);
+  color: var(--white);
+  border-right: 2px solid var(--navy);
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 22px;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.brand img {
+  width: 62px;
+  height: auto;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.brand-name span {
+  display: block;
+  font-weight: 500;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-link {
+  display: block;
+  color: var(--white);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.nav-link:hover {
+  border-color: var(--white);
+}
+
+.nav-link.active {
+  background: var(--white);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.side-note {
+  margin-top: auto;
+  font-size: 13px;
+  padding: 12px 10px 0;
+  border-top: 1.5px solid var(--white);
+}
+
+/* ===== Page header and body ===== */
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-head {
+  background: var(--navy);
+  color: var(--white);
+  padding: 36px 40px 76px;
+  border-radius: 0 0 28px 28px;
+}
+
+.page-head h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.page-head p {
+  margin-top: 6px;
+  max-width: 70ch;
+}
+
+.page-body {
+  padding: 0 40px 48px;
+  margin-top: -40px;
+}
+
+/* ===== Dashboard cards ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--white);
+  border: var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+
+.card-label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.card-value {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 10px 0 8px;
+}
+
+.card-note {
+  font-size: 13px;
+}
+
+/* ===== Mobile: sidebar becomes a top bar ===== */
+@media (max-width: 860px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-right: none;
+    border-bottom: 2px solid var(--navy);
+    overflow-x: auto;
+  }
+
+  .brand {
+    padding: 0 8px 0 0;
+    flex-shrink: 0;
+  }
+
+  .brand img { width: 40px; }
+  .brand-name { font-size: 16px; }
+  .brand-name span { display: inline; }
+
+  .sidebar nav {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .side-note { display: none; }
+
+  .page-head { padding: 24px 20px 64px; }
+  .page-head h1 { font-size: 26px; }
+  .page-body { padding: 0 16px 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+.page-head .project-name {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}

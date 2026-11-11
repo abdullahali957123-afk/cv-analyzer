@@ -1,0 +1,16 @@
+SAMPLE job description (for testing only, not a real vacancy)
+
+Junior Python Developer (Intern)
+
+Requirements:
+- Currently pursuing or completed a Bachelor's degree in IT or Computer Science
+- Python and Flask
+- SQL basics
+- Git and GitHub
+- Understanding of REST APIs
+- Good communication skills
+
+Nice to have:
+- Docker
+- React
+- Data analysis with Pandas

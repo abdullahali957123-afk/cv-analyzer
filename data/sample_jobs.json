@@ -1,0 +1,215 @@
+{
+  "notice": "SAMPLE listings for demonstration only. They are not real vacancies.",
+  "jobs": [
+    {
+      "id": "job-1",
+      "title": "Junior Web Developer Intern",
+      "company": "Sample Company 1",
+      "category": "Web Development",
+      "type": "Internship",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 0,
+      "required": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Git"
+      ],
+      "preferred": [
+        "React",
+        "Bootstrap"
+      ],
+      "summary": "Build and fix pages for a small web team."
+    },
+    {
+      "id": "job-2",
+      "title": "Python Backend Intern",
+      "company": "Sample Company 2",
+      "category": "Software Engineering",
+      "type": "Internship",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 0,
+      "required": [
+        "Python",
+        "Flask",
+        "SQL",
+        "Git"
+      ],
+      "preferred": [
+        "Docker",
+        "REST API"
+      ],
+      "summary": "Help build backend services and APIs."
+    },
+    {
+      "id": "job-3",
+      "title": "Data Analyst Intern",
+      "company": "Sample Company 3",
+      "category": "Data Analysis",
+      "type": "Internship",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 0,
+      "required": [
+        "Python",
+        "Pandas",
+        "Excel",
+        "Data Analysis"
+      ],
+      "preferred": [
+        "Power BI",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "summary": "Clean data and prepare simple reports."
+    },
+    {
+      "id": "job-4",
+      "title": "Junior Frontend Developer",
+      "company": "Sample Company 4",
+      "category": "Web Development",
+      "type": "Entry-level",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 1,
+      "required": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Git"
+      ],
+      "preferred": [
+        "TypeScript"
+      ],
+      "summary": "Build user interfaces for a web product."
+    },
+    {
+      "id": "job-5",
+      "title": "Machine Learning Intern",
+      "company": "Sample Company 5",
+      "category": "Data Science / AI",
+      "type": "Internship",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 0,
+      "required": [
+        "Python",
+        "Machine Learning",
+        "Pandas",
+        "NumPy"
+      ],
+      "preferred": [
+        "Seaborn",
+        "Matplotlib"
+      ],
+      "summary": "Support experiments on small ML models."
+    },
+    {
+      "id": "job-6",
+      "title": "Junior Full-Stack Developer",
+      "company": "Sample Company 6",
+      "category": "Web Development",
+      "type": "Entry-level",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 1,
+      "required": [
+        "JavaScript",
+        "Node.js",
+        "SQL",
+        "Git",
+        "REST API"
+      ],
+      "preferred": [
+        "Docker",
+        "React"
+      ],
+      "summary": "Work on both frontend and backend features."
+    },
+    {
+      "id": "job-7",
+      "title": "Junior Data Analyst",
+      "company": "Sample Company 7",
+      "category": "Data Analysis",
+      "type": "Entry-level",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 1,
+      "required": [
+        "SQL",
+        "Excel",
+        "Tableau",
+        "Data Analysis"
+      ],
+      "preferred": [
+        "Python",
+        "Power BI"
+      ],
+      "summary": "Build dashboards and answer business questions."
+    },
+    {
+      "id": "job-8",
+      "title": "UI/UX Design Intern",
+      "company": "Sample Company 8",
+      "category": "Design",
+      "type": "Internship",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 0,
+      "required": [
+        "Figma",
+        "HTML",
+        "CSS",
+        "Communication"
+      ],
+      "preferred": [
+        "Bootstrap"
+      ],
+      "summary": "Design screens and test them with users."
+    },
+    {
+      "id": "job-9",
+      "title": "PHP Web Developer Intern",
+      "company": "Sample Company 9",
+      "category": "Web Development",
+      "type": "Internship",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 0,
+      "required": [
+        "PHP",
+        "MySQL",
+        "HTML",
+        "CSS"
+      ],
+      "preferred": [
+        "JavaScript",
+        "Git"
+      ],
+      "summary": "Maintain small PHP websites."
+    },
+    {
+      "id": "job-10",
+      "title": "Junior Software Engineer",
+      "company": "Sample Company 10",
+      "category": "Software Engineering",
+      "type": "Entry-level",
+      "location": "Sample location",
+      "degree": true,
+      "min_years": 2,
+      "required": [
+        "Java",
+        "OOP",
+        "Data Structures",
+        "Git"
+      ],
+      "preferred": [
+        "SQL"
+      ],
+      "summary": "Write and review code in a small engineering team."
+    }
+  ]
+}

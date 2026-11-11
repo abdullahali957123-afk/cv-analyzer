@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI CV Analyzer &amp; Career Recommendation Platform</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sections.css') }}">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <a href="#" class="brand" data-page="dashboard" aria-label="CV Analyzer home">
+      <img src="{{ url_for('static', filename='images/logo-icon.png') }}" alt="CV Analyzer logo">
+      <span class="brand-name">CV <span>Analyzer</span></span>
+    </a>
+    <nav>
+      <a href="#" class="nav-link active" data-page="dashboard">Dashboard</a>
+      <a href="#" class="nav-link" data-page="cv">CV Analyzer</a>
+      <a href="#" class="nav-link" data-page="jobs">Job Matcher</a>
+      <a href="#" class="nav-link" data-page="roadmap">Skills Roadmap</a>
+      <a href="#" class="nav-link" data-page="interview">Interview Prep</a>
+      <a href="#" class="nav-link" data-page="recommend">Job Recommendations</a>
+      <a href="#" class="nav-link" data-page="settings">Settings</a>
+    </nav>
+    <p class="side-note">Analyze. Improve. Get hired.</p>
+  </aside>
+
+  <main class="content">
+    <header class="page-head">
+      <p class="project-name">AI CV Analyzer &amp; Career Recommendation Platform</p>
+      <h1 id="pageTitle">Dashboard</h1>
+      <p id="pageText">Welcome, Zainab! Your CV summary will appear here.</p>
+    </header>
+
+    <div class="page-body">
+
+    <div class="cards" id="dashboardCards">
+      <div class="card">
+        <p class="card-label">CV Score</p>
+        <h2 class="card-value" id="cvScoreValue">--/100</h2>
+        <p class="card-note" id="cvScoreNote">Analyze a CV to see your score here</p>
+      </div>
+      <div class="card">
+        <p class="card-label">Job Matches</p>
+        <h2 class="card-value" id="jobMatchesValue">--</h2>
+        <p class="card-note" id="jobMatchesNote">Open Job Recommendations to see matches here</p>
+      </div>
+      <div class="card">
+        <p class="card-label">Skill Gaps</p>
+        <h2 class="card-value" id="skillGapValue">--</h2>
+        <p class="card-note" id="skillGapNote">Run the Job Matcher to see missing skills here</p>
+      </div>
+      <div class="card">
+        <p class="card-label">Interview Readiness</p>
+        <h2 class="card-value" id="readinessValue">--</h2>
+        <p class="card-note" id="readinessNote">Practice interview answers to see your score here</p>
+      </div>
+    </div>
+
+    <div class="start-guide" id="dashboardGuide">
+      <h3>Start here</h3>
+      <ol>
+        <li><strong>Upload your CV</strong> in CV Analyzer and check the details.</li>
+        <li><strong>Paste a job description</strong> in Job Matcher to see your match.</li>
+        <li><strong>Practice answers</strong> in Interview Prep and follow your Skills Roadmap.</li>
+      </ol>
+    </div>
+
+    <section id="cvSection" class="cv-section">
+      <div id="dropZone" class="drop-zone" tabindex="0">
+        <p class="drop-title">Drag and drop your CV here</p>
+        <p class="drop-sub">or click to choose a file (PDF or DOCX, max 5 MB)</p>
+        <input type="file" id="cvInput" accept=".pdf,.docx" hidden>
+      </div>
+
+      <p id="cvMessage" class="cv-message" role="alert"></p>
+
+      <div id="fileInfo" class="file-info">
+        <p><strong>File:</strong> <span id="fileName"></span></p>
+        <p><strong>Size:</strong> <span id="fileSize"></span></p>
+        <button id="removeFile">Remove</button>
+      </div>
+
+      <div id="extractBox" class="extract-box">
+        <h3>Extracted CV text</h3>
+        <p class="drop-sub">You can edit it here.</p>
+        <textarea id="extractedText" rows="10"></textarea>
+      </div>
+
+      <div id="sectionsBox" class="sections-box">
+        <h3>CV details (editable)</h3>
+        <p class="drop-sub">These were extracted using simple rules, so mistakes are possible. Please check them.</p>
+
+        <div id="missingNote" class="missing-note"></div>
+
+        <label for="fName">Name</label>
+        <input type="text" id="fName">
+
+        <label for="fEmail">Email</label>
+        <input type="text" id="fEmail">
+
+        <label for="fPhone">Phone</label>
+        <input type="text" id="fPhone">
+
+        <label for="fSkills">Skills (separate with commas)</label>
+        <textarea id="fSkills" rows="3"></textarea>
+
+        <label for="fEducation">Education</label>
+        <textarea id="fEducation" rows="3"></textarea>
+
+        <label for="fExperience">Experience</label>
+        <textarea id="fExperience" rows="3"></textarea>
+
+        <label for="fProjects">Projects</label>
+        <textarea id="fProjects" rows="5"></textarea>
+
+        <label for="fCertifications">Certifications</label>
+        <textarea id="fCertifications" rows="3"></textarea>
+
+        <button id="analyzeBtn" class="analyze-btn">Analyze CV</button>
+      </div>
+
+      <div id="resultBox" class="result-box"></div>
+    </section>
+
+    <section id="jobSection" class="cv-section">
+      <div class="job-box">
+        <h3>Paste a job description</h3>
+        <p class="drop-sub">First upload your CV in CV Analyzer, then paste the job description here.</p>
+        <textarea id="jobText" rows="12" placeholder="Paste the job description here..."></textarea>
+        <button id="matchBtn" class="analyze-btn">Match</button>
+        <p id="jobMessage" class="cv-message" role="alert"></p>
+      </div>
+      <div id="matchResult" class="result-box"></div>
+    </section>
+
+    <section id="roadmapSection" class="cv-section">
+      <div id="roadmapContent"></div>
+    </section>
+
+    <section id="interviewSection" class="cv-section">
+      <div class="job-box">
+        <h3>Interview questions</h3>
+        <p class="drop-sub">Questions are generated from your CV. If you pasted a job description in Job Matcher, it is used too.</p>
+        <button id="genBtn" class="analyze-btn">Generate questions</button>
+        <p id="interviewMessage" class="cv-message" role="alert"></p>
+      </div>
+      <div id="questionsBox"></div>
+    </section>
+
+    <section id="recommendSection" class="cv-section">
+      <div class="job-box">
+        <h3>Your preferences</h3>
+        <p class="drop-sub">Choose what interests you (optional), then find matches. All jobs shown are SAMPLE listings, not real vacancies.</p>
+        <h4>Job categories</h4>
+        <div id="catOptions" class="pref-grid"></div>
+        <h4>Job types</h4>
+        <div id="typeOptions" class="pref-grid"></div>
+        <button id="recBtn" class="analyze-btn">Find matches</button>
+        <p id="recMessage" class="cv-message" role="alert"></p>
+      </div>
+      <div id="recResults"></div>
+    </section>
+
+    <section id="settingsSection" class="cv-section">
+      <div class="job-box">
+        <h3>Privacy</h3>
+        <p class="drop-sub">Your data stays in a local file on this computer (instance/app.db). Nothing is sent to other services. Nothing is saved unless you choose to save it.</p>
+      </div>
+
+      <div class="job-box set-card">
+        <h3>Saved CV profile</h3>
+        <p id="profileStatus" class="drop-sub"></p>
+        <button id="saveProfileBtn">Save current CV profile</button>
+        <button id="loadProfileBtn">Load saved profile into CV form</button>
+        <p id="profileMessage" class="cv-message" role="alert"></p>
+      </div>
+
+      <div class="job-box set-card">
+        <h3>Analysis history</h3>
+        <label class="check-row"><input type="checkbox" id="historyToggle"> Keep my analysis history (scores and dates only)</label>
+        <div id="historyList"></div>
+      </div>
+
+      <div class="job-box set-card">
+        <h3>Saved jobs</h3>
+        <div id="savedList"></div>
+      </div>
+
+      <div class="job-box set-card">
+        <h3>Delete my data</h3>
+        <p class="drop-sub">This removes your saved profile, history, saved jobs and settings from this computer.</p>
+        <button id="deleteAllBtn" class="danger-btn">Delete all my data</button>
+        <p id="deleteMessage" class="cv-message" role="alert"></p>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/cv.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jobmatch.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/roadmap.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/interview.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/recommend.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+</body>
+</html>
